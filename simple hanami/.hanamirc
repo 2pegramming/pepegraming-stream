@@ -1,0 +1,3 @@
+project=rssfeed
+test=rspec
+template=slim
