@@ -43,15 +43,29 @@ end
 
 class EventStore
   def initialize
-    @store = []
+    # { stream => [...] }
+    @store = {}
   end
 
   def get
-    @store
+    @store.flat_map { |stream, events| events }
   end
 
-  def append(*events)
-    events.each { |event| @store << event }
+  def get_stream(stream)
+    @store[stream] || []
+  end
+
+  def append(stream, *events)
+    @store[stream] ||= []
+
+    events.each { |event| @store[stream] << event }
+  end
+
+  def evolve(stream, producer, payload)
+    events = get_stream(stream)
+
+    new_events = producer.call(events, payload)
+    @store[stream] = (@store[stream] || []) + new_events
   end
 end
 
@@ -109,26 +123,26 @@ end
 
 ########################################
 
-event_store = EventStore.new
-project = Projections::Project.new
-
-# puts 'Initial state:'
-events = event_store.get
-project.call(Projections::AllOrders.new, {}, events)
-
-# puts 'After creating order:'
-event = Events::OrderCreated.new(payload: { order_id: 1, account_id: 1 })
-event_store.append(event)
-
-events = event_store.get
-project.call(Projections::AllOrders.new, {}, events)
-
-# puts 'After creating one more order:'
-event = Events::OrderCreated.new(payload: { order_id: 2, account_id: 1 })
-event_store.append(event)
-
-events = event_store.get
-project.call(Projections::AllOrders.new, {}, events)
+# event_store = EventStore.new
+# project = Projections::Project.new
+#
+# # puts 'Initial state:'
+# events = event_store.get
+# project.call(Projections::AllOrders.new, {}, events)
+#
+# # puts 'After creating order:'
+# event = Events::OrderCreated.new(payload: { order_id: 1, account_id: 1 })
+# event_store.append(event)
+#
+# events = event_store.get
+# project.call(Projections::AllOrders.new, {}, events)
+#
+# # puts 'After creating one more order:'
+# event = Events::OrderCreated.new(payload: { order_id: 2, account_id: 1 })
+# event_store.append(event)
+#
+# events = event_store.get
+# project.call(Projections::AllOrders.new, {}, events)
 
 ########################################
 
@@ -156,32 +170,126 @@ project.call(Projections::AllOrders.new, {}, events)
   # class ItemAddedToOrder < Base; end
   # class ItemRemovedFromOrder < Base; end
 
+# events:
+#
+#   OrderCreated
+#   OrderClosed
+#   ItemAddedToOrder
+#   ItemRemovedFromOrder
+#   OrderCheckouted
+
+# event_store = EventStore.new
+# project = Projections::Project.new
+#
+# event = Events::OrderCreated.new(payload: { order_id: 1, account_id: 1 })
+# event_store.append(event)
+#
+# event = Events::OrderCreated.new(payload: { order_id: 2, account_id: 2 })
+# event_store.append(event)
+#
+# events = event_store.get
+# pp project.call(Projections::AllOrders.new, {}, events)
+#
+# puts '*' * 80
+#
+# event = Events::ItemAddedToOrder.new(payload: { order_id: 1, item_id: 1, name: 'ruby sticker', cost: 10 })
+# event_store.append(event)
+#
+# event = Events::ItemAddedToOrder.new(payload: { order_id: 1, item_id: 2, name: 'git sticker', cost: 17 })
+# event_store.append(event)
+#
+# event = Events::ItemAddedToOrder.new(payload: { order_id: 2, item_id: 3, name: 'ruby sticker', cost: 11 })
+# event_store.append(event)
+#
+# events = event_store.get
+# pp project.call(Projections::AllOrders.new, {}, events)
+#
+# puts '*' * 80
+#
+# pp project.call(Projections::CostForOrders.new, {}, events)
+
+####################################################################
+
+require 'securerandom'
+
+module Producers
+  class AddItem
+    def initialize
+      @project = Projections::Project.new
+    end
+
+    # payload:
+    #   account_id
+    #   name
+    #   cost
+    def call(events, payload)
+      state = @project.call(Projections::AllOrders.new, {}, events)
+      order_for_account = state[:orders]&.first
+
+      if order_for_account
+        [
+          Events::ItemAddedToOrder.new(
+            payload: {
+              order_id: order_for_account[:order_id], item_id: SecureRandom.uuid, name: payload[:name], cost: payload[:cost]
+            }
+          )
+        ]
+      else
+        order_id = SecureRandom.uuid
+
+        [
+          Events::OrderCreated.new(
+            payload: { order_id: order_id, account_id: payload[:account_id] }
+          ),
+          Events::ItemAddedToOrder.new(
+            payload: {
+              order_id: order_id, item_id: SecureRandom.uuid, name: payload[:name], cost: payload[:cost]
+            }
+          )
+        ]
+      end
+    end
+  end
+end
+
 event_store = EventStore.new
 project = Projections::Project.new
 
-event = Events::OrderCreated.new(payload: { order_id: 1, account_id: 1 })
-event_store.append(event)
+events = event_store.get
+pp project.call(Projections::AllOrders.new, {}, events)
 
-event = Events::OrderCreated.new(payload: { order_id: 2, account_id: 2 })
-event_store.append(event)
+puts '*' * 80
+
+event = Events::OrderCreated.new(payload: { order_id: SecureRandom.uuid, account_id: 1 })
+event_store.append(1, event)
+
+event_store.evolve(1, Producers::AddItem.new, account_id: 1, name: 'ruby sticker', cost: 10)
+
+
+event_store.evolve(2, Producers::AddItem.new, account_id: 2, name: 'hanami sticker', cost: 5)
+event_store.evolve(2, Producers::AddItem.new, account_id: 2, name: 'ruby sticker', cost: 15)
 
 events = event_store.get
 pp project.call(Projections::AllOrders.new, {}, events)
 
 puts '*' * 80
 
-event = Events::ItemAddedToOrder.new(payload: { order_id: 1, item_id: 1, name: 'ruby sticker', cost: 10 })
-event_store.append(event)
-
-event = Events::ItemAddedToOrder.new(payload: { order_id: 1, item_id: 2, name: 'git sticker', cost: 17 })
-event_store.append(event)
-
-event = Events::ItemAddedToOrder.new(payload: { order_id: 2, item_id: 3, name: 'ruby sticker', cost: 11 })
-event_store.append(event)
-
-events = event_store.get
+events = event_store.get_stream(1)
 pp project.call(Projections::AllOrders.new, {}, events)
 
-puts '*' * 80
+events = event_store.get_stream(2)
+pp project.call(Projections::AllOrders.new, {}, events)
 
-pp project.call(Projections::CostForOrders.new, {}, events)
+####################################################################
+
+# [
+#   create order #stream=1
+#   add item #stream=1
+#   add item #stream=1
+#   remove item #stream=1
+#   checkout #stream=1
+#
+#   create order #stream=2
+#   add item #stream=2
+#   checkout #stream=2
+# ]
