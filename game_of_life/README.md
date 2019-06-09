@@ -5,4 +5,3 @@ simple ruby implementation of https://en.wikipedia.org/wiki/Conway%27s_Game_of_L
 # How to use
 
 just call `lib/main.rb`
-

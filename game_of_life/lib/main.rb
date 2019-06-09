@@ -108,25 +108,7 @@ class Game
   end
 end
 
-# g = Grid.new(10, 10, [[0,2], [1,0], [1,2], [2,1], [2,2]])
-# p g.life_neighbours_count(1, 1) # => ListOfCells
-#
-# puts '*'*80
-#
-# p g.life_neighbours_count(1, 2)
-#
-# puts '*'*80
-#
-# p g.life_neighbours_count(0, 0)
-#
-# puts '*'*80
-#
-# p g.neighbours(9, 9)
-# p g.life_neighbours_count(9, 9)
-
-# Game.new.call(10, 10, [[0,2], [1,0], [1,2], [2,1], [2,2]])
 Game.new.call(10, 10, [
   [9, 9], [9, 8], [8, 9], [8, 8], # block
   [0,2], [1,0], [1,2], [2,1], [2,2] # glider
 ])
-
