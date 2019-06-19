@@ -51,6 +51,9 @@ class Grid
   }.freeze
 
   def initialize(width, height, cells = [])
+    @width = width
+    @height = height
+
     @cells = Array.new(width * height).map! { Cell.new }
     @grid = @cells.each_slice(width).to_a
 
@@ -80,8 +83,13 @@ class Grid
 
   def neighbours(x, y)
     RELATIVE_NEIGHBOUR_COORDINATES.map do |position_name, (relative_y, relative_x)|
-      next if y + relative_y < 0 || x + relative_x < 0
-      @grid.dig(y + relative_y, x + relative_x)
+      new_x = x + relative_x
+      new_y = y + relative_y
+
+      new_x = new_x >= @width ? new_x - @width : new_x
+      new_y = new_y >= @height ? new_y - @height : new_y
+
+      @grid.dig(new_y, new_x)
     end.compact
   end
 
@@ -108,7 +116,33 @@ class Game
   end
 end
 
-Game.new.call(10, 10, [
-  [9, 9], [9, 8], [8, 9], [8, 8], # block
-  [0,2], [1,0], [1,2], [2,1], [2,2] # glider
-])
+# Game.new.call(10, 10, [
+#   [9, 9], [9, 8], [8, 9], [8, 8], # block
+#   [0,2], [1,0], [1,2], [2,1], [2,2] # glider
+# ])
+
+
+def foo(a, b = 'test', *c, foo: 'other test', **d)
+  puts a
+  puts b
+  puts c
+  puts foo
+  puts d
+end
+
+foo(1, 2, 3, other: 4)
+puts '*'*80
+foo(1, 2, 3, 4, other: 5, foo: 6)
+
+# => 1
+# => 2
+# => 3
+# => other test
+# => {:other=>4}
+# => ********************************************************************************
+# => 1
+# => 2
+# => 3
+# => 4
+# => 6
+# => {:other=>5}
