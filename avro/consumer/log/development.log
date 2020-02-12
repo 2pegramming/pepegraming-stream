@@ -1,0 +1,673 @@
+I, [2020-02-12T21:04:04.130996 #13538]  INFO -- : Initializing Karafka server 13538
+I, [2020-02-12T21:04:04.201670 #13538]  INFO -- : Running Karafka server 13538
+I, [2020-02-12T21:04:04.204708 #13538]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:04:04.204777 #13538]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:04:04.208695 #13538]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:04:04.208947 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:04:04.209215 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:04:04.209014 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:04:04.270128 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:04:04.270301 #13538]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:04.290064 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-45c9285c-209c-4708-b03c-d192fe5a4e92`
+I, [2020-02-12T21:04:04.290238 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:04:04.304483 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:04:05.274957 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 0
+I, [2020-02-12T21:04:05.275165 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:04:05.275226 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:04:05.283078 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+E, [2020-02-12T21:04:06.331778 #13538] ERROR -- : Params deserialization error for my-topic topic: 765: unexpected token at 'message'
+E, [2020-02-12T21:04:06.331909 #13538] ERROR -- : [[consumer_app_topic_group] {}:] Exception raised when processing my-topic/0 in offset range 0..1 -- Karafka::Errors::DeserializationError: 765: unexpected token at 'message'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:22:in `rescue in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:19:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:60:in `block in deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:59:in `deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:51:in `deserialize!'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:42:in `first'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/consumers/single_params.rb:11:in `params'
+/Users/anton/work/repositories/pepegraming-stream/avro/consumer/app/consumers/my_topic_consumer.rb:3:in `consume'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `block in process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/base_consumer.rb:38:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:43:in `block (2 levels) in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `block in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:18:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:46:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:322:in `block (3 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:320:in `block (2 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `block in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:28:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:404:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:403:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:16:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:299:in `each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:39:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:24:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/fetcher.rb:18:in `block (2 levels) in call'
+I, [2020-02-12T21:04:07.333265 #13538]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:04:07.333355 #13538]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+E, [2020-02-12T21:04:07.369034 #13538] ERROR -- : Client fetch loop error: 765: unexpected token at 'message'
+I, [2020-02-12T21:04:07.369678 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:07.369765 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+E, [2020-02-12T21:04:07.374049 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Failed to join group; resetting member id and retrying in 1s...
+I, [2020-02-12T21:04:08.373042 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:08.376976 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:04:08.385040 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joined group `consumer_app_topic_group` with member id `consumer_app-d77e1828-7c91-4fe9-b722-d610c2019aee`
+I, [2020-02-12T21:04:08.385131 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:04:08.396919 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Partitions assigned for `my-topic`: 0
+W, [2020-02-12T21:04:08.397110 #13538]  WARN -- : [[consumer_app_topic_group] {my-topic: 0}:] Not fetching from my-topic/0 due to pause
+I, [2020-02-12T21:04:09.376287 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:10.377081 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:11.382300 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:12.382866 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:13.387335 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:14.391426 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:15.396067 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:16.401144 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:17.404739 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:18.426118 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Automatically resuming partition my-topic/0, pause timeout expired
+I, [2020-02-12T21:04:24.001010 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 0
+E, [2020-02-12T21:04:25.013059 #13538] ERROR -- : Params deserialization error for my-topic topic: 765: unexpected token at 'message'
+E, [2020-02-12T21:04:25.013221 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Exception raised when processing my-topic/0 in offset range 0..1 -- Karafka::Errors::DeserializationError: 765: unexpected token at 'message'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:22:in `rescue in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:19:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:60:in `block in deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:59:in `deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:51:in `deserialize!'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:42:in `first'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/consumers/single_params.rb:11:in `params'
+/Users/anton/work/repositories/pepegraming-stream/avro/consumer/app/consumers/my_topic_consumer.rb:3:in `consume'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `block in process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/base_consumer.rb:38:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:43:in `block (2 levels) in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `block in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:18:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:46:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:322:in `block (3 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:320:in `block (2 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `block in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:28:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:404:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:403:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:16:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:299:in `each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:39:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:24:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/fetcher.rb:18:in `block (2 levels) in call'
+I, [2020-02-12T21:04:25.014131 #13538]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:04:25.014234 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Leaving group `consumer_app_topic_group`
+E, [2020-02-12T21:04:25.019837 #13538] ERROR -- : Client fetch loop error: 765: unexpected token at 'message'
+I, [2020-02-12T21:04:25.020190 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:04:25.021265 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+E, [2020-02-12T21:04:25.027003 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Failed to join group; resetting member id and retrying in 1s...
+I, [2020-02-12T21:04:26.026236 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:26.027455 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:04:26.036055 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joined group `consumer_app_topic_group` with member id `consumer_app-af9d0a3d-dfe3-48ab-83a3-2c983cc679d3`
+I, [2020-02-12T21:04:26.036143 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:04:26.040998 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Partitions assigned for `my-topic`: 0
+W, [2020-02-12T21:04:26.041079 #13538]  WARN -- : [[consumer_app_topic_group] {my-topic: 0}:] Not fetching from my-topic/0 due to pause
+I, [2020-02-12T21:04:27.029068 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:28.032830 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:29.037568 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:30.041524 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:31.046110 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:32.049856 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:33.054972 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:34.060350 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:35.060917 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:36.059553 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Automatically resuming partition my-topic/0, pause timeout expired
+I, [2020-02-12T21:04:36.061716 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:37.062034 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 0
+E, [2020-02-12T21:04:38.066452 #13538] ERROR -- : Params deserialization error for my-topic topic: 765: unexpected token at 'message'
+E, [2020-02-12T21:04:38.066669 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Exception raised when processing my-topic/0 in offset range 0..1 -- Karafka::Errors::DeserializationError: 765: unexpected token at 'message'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:22:in `rescue in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:19:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:60:in `block in deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:59:in `deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:51:in `deserialize!'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:42:in `first'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/consumers/single_params.rb:11:in `params'
+/Users/anton/work/repositories/pepegraming-stream/avro/consumer/app/consumers/my_topic_consumer.rb:3:in `consume'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `block in process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/base_consumer.rb:38:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:43:in `block (2 levels) in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `block in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:18:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:46:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:322:in `block (3 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:320:in `block (2 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `block in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:28:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:404:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:403:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:16:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:299:in `each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:39:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:24:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/fetcher.rb:18:in `block (2 levels) in call'
+I, [2020-02-12T21:04:38.069035 #13538]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:04:38.069156 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Leaving group `consumer_app_topic_group`
+E, [2020-02-12T21:04:38.077109 #13538] ERROR -- : Client fetch loop error: 765: unexpected token at 'message'
+I, [2020-02-12T21:04:38.077713 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:38.077755 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+E, [2020-02-12T21:04:38.080938 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Failed to join group; resetting member id and retrying in 1s...
+I, [2020-02-12T21:04:39.078047 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:39.083806 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:04:39.092740 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joined group `consumer_app_topic_group` with member id `consumer_app-0c480d2f-8800-4b8a-a790-c2d2fc113264`
+I, [2020-02-12T21:04:39.092814 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:04:39.100101 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Partitions assigned for `my-topic`: 0
+W, [2020-02-12T21:04:39.100218 #13538]  WARN -- : [[consumer_app_topic_group] {my-topic: 0}:] Not fetching from my-topic/0 due to pause
+I, [2020-02-12T21:04:40.080124 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:41.082318 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:42.087655 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:43.090881 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:44.091685 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:45.096296 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:46.098551 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:49.135891 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Automatically resuming partition my-topic/0, pause timeout expired
+I, [2020-02-12T21:04:51.850048 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 0
+E, [2020-02-12T21:04:52.849950 #13538] ERROR -- : Params deserialization error for my-topic topic: 765: unexpected token at 'message'
+E, [2020-02-12T21:04:52.850199 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Exception raised when processing my-topic/0 in offset range 0..1 -- Karafka::Errors::DeserializationError: 765: unexpected token at 'message'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:22:in `rescue in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/serialization/json/deserializer.rb:19:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:60:in `block in deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:59:in `deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:51:in `deserialize!'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:42:in `first'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/consumers/single_params.rb:11:in `params'
+/Users/anton/work/repositories/pepegraming-stream/avro/consumer/app/consumers/my_topic_consumer.rb:3:in `consume'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `block in process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/base_consumer.rb:38:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:43:in `block (2 levels) in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `block in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:18:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:46:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:322:in `block (3 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:320:in `block (2 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `block in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:28:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:404:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:403:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:16:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:299:in `each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:39:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:24:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/fetcher.rb:18:in `block (2 levels) in call'
+I, [2020-02-12T21:04:52.863115 #13538]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:04:52.863255 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Leaving group `consumer_app_topic_group`
+E, [2020-02-12T21:04:52.872204 #13538] ERROR -- : Client fetch loop error: 765: unexpected token at 'message'
+I, [2020-02-12T21:04:52.872941 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:52.873051 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+E, [2020-02-12T21:04:52.878529 #13538] ERROR -- : [[consumer_app_topic_group] {my-topic: 0}:] Failed to join group; resetting member id and retrying in 1s...
+I, [2020-02-12T21:04:53.876533 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:53.888263 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:04:53.898758 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Joined group `consumer_app_topic_group` with member id `consumer_app-274565bd-f294-4b08-8f14-78e8a0b99707`
+I, [2020-02-12T21:04:53.898855 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:04:53.912827 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Partitions assigned for `my-topic`: 0
+W, [2020-02-12T21:04:53.913066 #13538]  WARN -- : [[consumer_app_topic_group] {my-topic: 0}:] Not fetching from my-topic/0 due to pause
+I, [2020-02-12T21:04:54.880597 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:55.885258 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:56.890085 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:57.892005 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:58.896218 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:04:59.516211 #13538]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:04:59.516361 #13538]  INFO -- : Stopping Karafka server 13538
+I, [2020-02-12T21:04:59.900796 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:05:00.904308 #13538]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:05:00.904417 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Disconnecting broker 1
+I, [2020-02-12T21:05:00.904502 #13538]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:07:23.845640 #15346]  INFO -- : Initializing Karafka server 15346
+I, [2020-02-12T21:07:23.920517 #15346]  INFO -- : Running Karafka server 15346
+I, [2020-02-12T21:07:23.924258 #15346]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:07:23.924348 #15346]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:07:23.928340 #15346]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:07:23.928671 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:07:23.928998 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:07:23.928736 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:07:23.934796 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:07:23.934941 #15346]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:07:23.946708 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-6dfc5762-3e59-4eac-8abb-eca42f3dc2b5`
+I, [2020-02-12T21:07:23.946790 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:07:23.954132 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:07:24.938783 #15346]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 0
+I, [2020-02-12T21:07:24.939030 #15346]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:07:24.939141 #15346]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:07:24.948673 #15346]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:07:25.964382 #15346]  INFO -- : Inline processing of topic my-topic with 1 messages took 0 ms
+I, [2020-02-12T21:07:25.964563 #15346]  INFO -- : Inline processing of topic my-topic with 1 messages took 0 ms
+I, [2020-02-12T21:07:25.964938 #15346]  INFO -- : 2 messages on my-topic topic delegated to MyTopicConsumer
+I, [2020-02-12T21:08:06.051729 #15346]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:08:06.052017 #15346]  INFO -- : Stopping Karafka server 15346
+I, [2020-02-12T21:08:06.160583 #15346]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:08:06.160720 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:08:06.173324 #15346]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:08:08.421017 #15722]  INFO -- : Initializing Karafka server 15722
+I, [2020-02-12T21:08:08.478237 #15722]  INFO -- : Running Karafka server 15722
+I, [2020-02-12T21:08:08.481129 #15722]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:08:08.481186 #15722]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:08:08.489721 #15722]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:08:08.490090 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:08:08.490880 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:08:08.491171 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:08:08.500120 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:08:08.500255 #15722]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:08:08.507385 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-338c97b3-d991-4273-a870-78da1fde11ed`
+I, [2020-02-12T21:08:08.507440 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:08:08.510676 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:08:09.505237 #15722]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 2
+I, [2020-02-12T21:08:09.505373 #15722]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:08:09.505415 #15722]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:08:09.515729 #15722]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:08:18.535961 #15722]  INFO -- : Inline processing of topic my-topic with 1 messages took 0 ms
+I, [2020-02-12T21:08:18.536021 #15722]  INFO -- : 1 messages on my-topic topic delegated to MyTopicConsumer
+I, [2020-02-12T21:08:31.484775 #15722]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:08:31.484883 #15722]  INFO -- : Stopping Karafka server 15722
+I, [2020-02-12T21:08:33.379675 #15722]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:08:33.379884 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:08:33.392224 #15722]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:09:37.841736 #16636]  INFO -- : Initializing Karafka server 16636
+I, [2020-02-12T21:09:37.897790 #16636]  INFO -- : Running Karafka server 16636
+I, [2020-02-12T21:09:37.900909 #16636]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:09:37.900973 #16636]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:09:37.905884 #16636]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:09:37.906163 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:09:37.906335 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:09:37.906212 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:09:37.910641 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:09:37.910773 #16636]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:09:37.947368 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-7f244479-1d80-438c-8cf2-029b9b51b4db`
+I, [2020-02-12T21:09:37.947478 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:09:37.963319 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:09:38.915296 #16636]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 3
+I, [2020-02-12T21:09:38.915536 #16636]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:09:38.915628 #16636]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:09:38.923515 #16636]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:09:49.993696 #16636]  INFO -- : Inline processing of topic my-topic with 1 messages took 0 ms
+I, [2020-02-12T21:09:49.993770 #16636]  INFO -- : 1 messages on my-topic topic delegated to MyTopicConsumer
+I, [2020-02-12T21:09:57.148514 #16636]  INFO -- : Stopping Karafka server 16636
+I, [2020-02-12T21:09:57.148881 #16636]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:09:58.519568 #16636]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:09:58.519691 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:09:58.529847 #16636]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:11:10.745848 #17696]  INFO -- : Initializing Karafka server 17696
+I, [2020-02-12T21:11:10.809832 #17696]  INFO -- : Running Karafka server 17696
+I, [2020-02-12T21:11:10.810768 #17696]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:11:10.810827 #17696]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:11:10.816950 #17696]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:11:10.817437 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:11:10.817760 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:11:10.818232 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:11:10.824625 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:11:10.824804 #17696]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:11:10.841314 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-fc5f5aa0-12cb-40e5-8cc4-670085323ddd`
+I, [2020-02-12T21:11:10.841423 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:11:10.846207 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:11:11.828878 #17696]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 4
+I, [2020-02-12T21:11:11.829057 #17696]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:11:11.829116 #17696]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:11:11.842451 #17696]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:11:12.857344 #17696]  INFO -- : Inline processing of topic my-topic with 1 messages took 1 ms
+I, [2020-02-12T21:11:12.858078 #17696]  INFO -- : Inline processing of topic my-topic with 1 messages took 0 ms
+I, [2020-02-12T21:11:12.858423 #17696]  INFO -- : Inline processing of topic my-topic with 1 messages took 0 ms
+I, [2020-02-12T21:11:12.858661 #17696]  INFO -- : 3 messages on my-topic topic delegated to MyTopicConsumer
+I, [2020-02-12T21:22:15.985120 #17696]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:22:15.985254 #17696]  INFO -- : Stopping Karafka server 17696
+I, [2020-02-12T21:22:16.730920 #17696]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:22:16.731035 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:22:16.736899 #17696]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:33:42.187261 #24350]  INFO -- : Initializing Karafka server 24350
+I, [2020-02-12T21:33:42.274526 #24350]  INFO -- : Running Karafka server 24350
+I, [2020-02-12T21:33:42.275472 #24350]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:33:42.275520 #24350]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:33:42.276350 #24350]  INFO -- : New topics added to target list: person
+I, [2020-02-12T21:33:42.276390 #24350]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:33:42.281015 #24350]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:33:42.281434 #24350]  INFO -- : [[consumer_app_person_group] {}:] Joining group `consumer_app_person_group`
+I, [2020-02-12T21:33:42.281806 #24350]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:33:42.282006 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:33:42.281541 #24350]  INFO -- : [[consumer_app_person_group] {}:] Will fetch at most 1048576 bytes at a time per partition from person
+I, [2020-02-12T21:33:42.282382 #24350]  INFO -- : [[consumer_app_person_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:33:42.282100 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:33:42.282543 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:33:42.287705 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:33:42.287878 #24350]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:33:42.289845 #24350]  INFO -- : [[consumer_app_person_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:33:42.289971 #24350]  INFO -- : [[consumer_app_person_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:33:42.306619 #24350]  INFO -- : [[consumer_app_person_group] {}:] Joined group `consumer_app_person_group` with member id `consumer_app-9d02ba7b-6b27-4cbb-ad4c-e073c0208b58`
+I, [2020-02-12T21:33:42.306696 #24350]  INFO -- : [[consumer_app_person_group] {}:] Chosen as leader of group `consumer_app_person_group`
+I, [2020-02-12T21:33:42.310366 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-5f063201-a03c-4b08-b204-f32ed2646869`
+I, [2020-02-12T21:33:42.310457 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:33:42.318283 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:33:42.321247 #24350]  INFO -- : [[consumer_app_person_group] {}:] Partitions assigned for `person`: 0
+I, [2020-02-12T21:33:43.291443 #24350]  INFO -- : [[consumer_app_person_group] {person: 0}:] Seeking person/0 to offset 0
+I, [2020-02-12T21:33:43.292096 #24350]  INFO -- : [[consumer_app_person_group] {person: 0}:] New topics added to target list: person
+I, [2020-02-12T21:33:43.292245 #24350]  INFO -- : [[consumer_app_person_group] {person: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:33:43.291774 #24350]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 7
+I, [2020-02-12T21:33:43.292581 #24350]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:33:43.292655 #24350]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:33:43.301669 #24350]  INFO -- : [[consumer_app_person_group] {person: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:33:43.306112 #24350]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:33:44.333570 #24350]  INFO -- : Inline processing of topic person with 1 messages took 1 ms
+I, [2020-02-12T21:33:44.334208 #24350]  INFO -- : Inline processing of topic person with 1 messages took 0 ms
+I, [2020-02-12T21:33:44.334286 #24350]  INFO -- : 2 messages on person topic delegated to MyTopicConsumer
+I, [2020-02-12T21:34:02.569795 #24350]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:34:02.570142 #24350]  INFO -- : Stopping Karafka server 24350
+I, [2020-02-12T21:34:04.404913 #24350]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:34:04.405021 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:34:04.405119 #24350]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:34:04.405419 #24350]  INFO -- : [consumer_app_person_group] {person: 0}: Fetcher thread exited.
+I, [2020-02-12T21:34:04.405513 #24350]  INFO -- : [[consumer_app_person_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:34:04.415548 #24350]  INFO -- : [[consumer_app_person_group] {}:] Leaving group `consumer_app_person_group`
+I, [2020-02-12T21:53:48.311615 #29708]  INFO -- : Initializing Karafka server 29708
+I, [2020-02-12T21:53:48.394146 #29708]  INFO -- : Running Karafka server 29708
+I, [2020-02-12T21:53:48.395125 #29708]  INFO -- : New topics added to target list: person
+I, [2020-02-12T21:53:48.395176 #29708]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:53:48.396244 #29708]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:53:48.396793 #29708]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:53:48.403090 #29708]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:53:48.403593 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:53:48.404098 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:53:48.405157 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:53:48.413489 #29708]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:53:48.413615 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:53:48.414099 #29708]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:48.414514 #29708]  INFO -- : [[consumer_app_person_group] {}:] Joining group `consumer_app_person_group`
+I, [2020-02-12T21:53:48.414637 #29708]  INFO -- : [[consumer_app_person_group] {}:] Will fetch at most 1048576 bytes at a time per partition from person
+I, [2020-02-12T21:53:48.415066 #29708]  INFO -- : [[consumer_app_person_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:53:48.424460 #29708]  INFO -- : [[consumer_app_person_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:53:48.424821 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-ccb1f965-78d3-4c7e-a9e0-58d7a3bc126c`
+I, [2020-02-12T21:53:48.424873 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:53:48.425286 #29708]  INFO -- : [[consumer_app_person_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:48.439445 #29708]  INFO -- : [[consumer_app_person_group] {}:] Joined group `consumer_app_person_group` with member id `consumer_app-91596d44-3248-4391-86e7-2b392148155d`
+I, [2020-02-12T21:53:48.439525 #29708]  INFO -- : [[consumer_app_person_group] {}:] Chosen as leader of group `consumer_app_person_group`
+I, [2020-02-12T21:53:48.445593 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:53:48.449804 #29708]  INFO -- : [[consumer_app_person_group] {}:] Partitions assigned for `person`: 0
+I, [2020-02-12T21:53:49.414525 #29708]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 7
+I, [2020-02-12T21:53:49.414721 #29708]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:53:49.414786 #29708]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:53:49.419475 #29708]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:53:49.429943 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Seeking person/0 to offset 2
+I, [2020-02-12T21:53:49.430123 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] New topics added to target list: person
+I, [2020-02-12T21:53:49.430228 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:53:49.440415 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+E, [2020-02-12T21:53:50.460345 #29708] ERROR -- : Params deserialization error for person topic: Not an Avro data file: "\x00\x00\x00\x00" doesn't match "Obj\x01"
+E, [2020-02-12T21:53:50.460503 #29708] ERROR -- : [[consumer_app_person_group] {}:] Exception raised when processing person/0 in offset range 2..3 -- Avro::DataFile::DataFileError: Not an Avro data file: "\x00\x00\x00\x00" doesn't match "Obj\x01"
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/avro-1.9.2/lib/avro/data_file.rb:268:in `read_header'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/avro-1.9.2/lib/avro/data_file.rb:220:in `initialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/avro_turf-0.11.0/lib/avro_turf.rb:94:in `new'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/avro_turf-0.11.0/lib/avro_turf.rb:94:in `decode_stream'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/avro_turf-0.11.0/lib/avro_turf.rb:80:in `decode'
+/Users/anton/work/repositories/pepegraming-stream/avro/consumer/karafka.rb:42:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:60:in `block in deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:59:in `deserialize'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params.rb:51:in `deserialize!'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:23:in `block in each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:23:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/params/params_batch.rb:23:in `each'
+/Users/anton/work/repositories/pepegraming-stream/avro/consumer/app/consumers/my_topic_consumer.rb:5:in `consume'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `block in process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/backends/inline.rb:12:in `process'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/base_consumer.rb:38:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:43:in `block (2 levels) in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:38:in `block in call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `block in instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:11:in `measure'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/dry-monitor-0.3.1/lib/dry/monitor/notifications.rb:43:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/batch_delegator.rb:18:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:46:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `block in fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:322:in `block (3 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:320:in `block (2 levels) in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `each'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:302:in `block in each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:28:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:404:in `block in consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:23:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/instrumenter.rb:35:in `instrument'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:403:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/patches/ruby_kafka.rb:16:in `consumer_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/ruby-kafka-0.7.10/lib/kafka/consumer.rb:299:in `each_batch'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/client.rb:36:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:39:in `fetch_loop'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/connection/listener.rb:24:in `call'
+/Users/anton/.rvm/gems/ruby-2.5.0/gems/karafka-1.3.3/lib/karafka/fetcher.rb:18:in `block (2 levels) in call'
+I, [2020-02-12T21:53:51.463530 #29708]  INFO -- : [consumer_app_person_group] {person: 0}: Fetcher thread exited.
+I, [2020-02-12T21:53:51.463655 #29708]  INFO -- : [[consumer_app_person_group] {}:] Leaving group `consumer_app_person_group`
+E, [2020-02-12T21:53:51.471398 #29708] ERROR -- : Client fetch loop error: Not an Avro data file: "\x00\x00\x00\x00" doesn't match "Obj\x01"
+I, [2020-02-12T21:53:51.471973 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:51.472050 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Joining group `consumer_app_person_group`
+E, [2020-02-12T21:53:51.475192 #29708] ERROR -- : [[consumer_app_person_group] {person: 0}:] Failed to join group; resetting member id and retrying in 1s...
+I, [2020-02-12T21:53:52.476098 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:52.478438 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Joining group `consumer_app_person_group`
+I, [2020-02-12T21:53:52.486872 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Joined group `consumer_app_person_group` with member id `consumer_app-e05aa538-26d1-4746-ad2b-1826ecb11050`
+I, [2020-02-12T21:53:52.487058 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Chosen as leader of group `consumer_app_person_group`
+I, [2020-02-12T21:53:52.493818 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Partitions assigned for `person`: 0
+W, [2020-02-12T21:53:52.494003 #29708]  WARN -- : [[consumer_app_person_group] {person: 0}:] Not fetching from person/0 due to pause
+I, [2020-02-12T21:53:53.479828 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:54.481485 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:55.481889 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:56.485865 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:57.491180 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:58.493793 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:53:59.494572 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:54:02.519041 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Automatically resuming partition person/0, pause timeout expired
+I, [2020-02-12T21:56:48.155605 #29708]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:56:48.155774 #29708]  INFO -- : Stopping Karafka server 29708
+I, [2020-02-12T21:56:48.571797 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Seeking person/0 to offset 2
+I, [2020-02-12T21:56:49.208780 #29708]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:56:49.208952 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:56:49.209039 #29708]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:56:49.579466 #29708]  INFO -- : [consumer_app_person_group] {person: 0}: Fetcher thread exited.
+I, [2020-02-12T21:56:49.579639 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Disconnecting broker 1
+I, [2020-02-12T21:56:49.579718 #29708]  INFO -- : [[consumer_app_person_group] {person: 0}:] Leaving group `consumer_app_person_group`
+I, [2020-02-12T21:57:27.850639 #30926]  INFO -- : Initializing Karafka server 30926
+I, [2020-02-12T21:57:27.927196 #30926]  INFO -- : Running Karafka server 30926
+I, [2020-02-12T21:57:27.928083 #30926]  INFO -- : New topics added to target list: person
+I, [2020-02-12T21:57:27.928134 #30926]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:57:27.929093 #30926]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T21:57:27.929135 #30926]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:57:27.937096 #30926]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:57:27.937593 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T21:57:27.938189 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T21:57:27.938534 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:57:27.939553 #30926]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:57:27.939893 #30926]  INFO -- : [[consumer_app_person_group] {}:] Joining group `consumer_app_person_group`
+I, [2020-02-12T21:57:27.940721 #30926]  INFO -- : [[consumer_app_person_group] {}:] Will fetch at most 1048576 bytes at a time per partition from person
+I, [2020-02-12T21:57:27.940933 #30926]  INFO -- : [[consumer_app_person_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:57:27.954931 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:57:27.955127 #30926]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:57:27.955836 #30926]  INFO -- : [[consumer_app_person_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:57:27.955928 #30926]  INFO -- : [[consumer_app_person_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T21:57:27.967402 #30926]  INFO -- : [[consumer_app_person_group] {}:] Joined group `consumer_app_person_group` with member id `consumer_app-36293311-cc0d-4380-a027-1beb7cdb17bc`
+I, [2020-02-12T21:57:27.967521 #30926]  INFO -- : [[consumer_app_person_group] {}:] Chosen as leader of group `consumer_app_person_group`
+I, [2020-02-12T21:57:27.977558 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-98a47190-b6b9-4689-b6b0-591a6d23bd1f`
+I, [2020-02-12T21:57:27.977636 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T21:57:27.988725 #30926]  INFO -- : [[consumer_app_person_group] {}:] Partitions assigned for `person`: 0
+I, [2020-02-12T21:57:27.993157 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T21:57:28.956979 #30926]  INFO -- : [[consumer_app_person_group] {person: 0}:] Seeking person/0 to offset 2
+I, [2020-02-12T21:57:28.957261 #30926]  INFO -- : [[consumer_app_person_group] {person: 0}:] New topics added to target list: person
+I, [2020-02-12T21:57:28.957368 #30926]  INFO -- : [[consumer_app_person_group] {person: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:57:28.958068 #30926]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 7
+I, [2020-02-12T21:57:28.958789 #30926]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T21:57:28.958918 #30926]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T21:57:28.967216 #30926]  INFO -- : [[consumer_app_person_group] {person: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:57:28.975714 #30926]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T21:57:30.031064 #30926]  INFO -- : Inline processing of topic person with 1 messages took 26 ms
+I, [2020-02-12T21:57:30.034662 #30926]  INFO -- : Inline processing of topic person with 1 messages took 3 ms
+I, [2020-02-12T21:57:30.034787 #30926]  INFO -- : 2 messages on person topic delegated to MyTopicConsumer
+I, [2020-02-12T21:59:11.772798 #30926]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T21:59:11.773106 #30926]  INFO -- : Stopping Karafka server 30926
+I, [2020-02-12T21:59:12.401278 #30926]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T21:59:12.401391 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:59:12.401502 #30926]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T21:59:12.453205 #30926]  INFO -- : [consumer_app_person_group] {person: 0}: Fetcher thread exited.
+I, [2020-02-12T21:59:12.453290 #30926]  INFO -- : [[consumer_app_person_group] {}:] Disconnecting broker 1
+I, [2020-02-12T21:59:12.458426 #30926]  INFO -- : [[consumer_app_person_group] {}:] Leaving group `consumer_app_person_group`
+I, [2020-02-12T22:00:25.928675 #32324]  INFO -- : Initializing Karafka server 32324
+I, [2020-02-12T22:00:26.014180 #32324]  INFO -- : Running Karafka server 32324
+I, [2020-02-12T22:00:26.015132 #32324]  INFO -- : New topics added to target list: person
+I, [2020-02-12T22:00:26.015245 #32324]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:00:26.016036 #32324]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T22:00:26.016083 #32324]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:00:26.019776 #32324]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:00:26.019995 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T22:00:26.020117 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T22:00:26.020443 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:00:26.020798 #32324]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:00:26.021234 #32324]  INFO -- : [[consumer_app_person_group] {}:] Joining group `consumer_app_person_group`
+I, [2020-02-12T22:00:26.021452 #32324]  INFO -- : [[consumer_app_person_group] {}:] Will fetch at most 1048576 bytes at a time per partition from person
+I, [2020-02-12T22:00:26.021860 #32324]  INFO -- : [[consumer_app_person_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:00:26.027088 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:00:26.027276 #32324]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T22:00:26.029841 #32324]  INFO -- : [[consumer_app_person_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:00:26.029994 #32324]  INFO -- : [[consumer_app_person_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T22:00:26.046762 #32324]  INFO -- : [[consumer_app_person_group] {}:] Joined group `consumer_app_person_group` with member id `consumer_app-9a72ab28-eb1f-454d-8a5c-f8b165e8e9d4`
+I, [2020-02-12T22:00:26.046848 #32324]  INFO -- : [[consumer_app_person_group] {}:] Chosen as leader of group `consumer_app_person_group`
+I, [2020-02-12T22:00:26.051786 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-4e7bf5e0-1ee2-4c02-aa21-f4491bfb8e02`
+I, [2020-02-12T22:00:26.051866 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T22:00:26.052766 #32324]  INFO -- : [[consumer_app_person_group] {}:] Partitions assigned for `person`: 0
+I, [2020-02-12T22:00:26.057873 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T22:00:27.028172 #32324]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 7
+I, [2020-02-12T22:00:27.028423 #32324]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T22:00:27.028578 #32324]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:00:27.033105 #32324]  INFO -- : [[consumer_app_person_group] {person: 0}:] Seeking person/0 to offset 4
+I, [2020-02-12T22:00:27.033451 #32324]  INFO -- : [[consumer_app_person_group] {person: 0}:] New topics added to target list: person
+I, [2020-02-12T22:00:27.033577 #32324]  INFO -- : [[consumer_app_person_group] {person: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:00:27.038288 #32324]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:00:27.046328 #32324]  INFO -- : [[consumer_app_person_group] {person: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:00:28.098173 #32324]  INFO -- : Inline processing of topic person with 1 messages took 38 ms
+I, [2020-02-12T22:00:28.098297 #32324]  INFO -- : 1 messages on person topic delegated to MyTopicConsumer
+I, [2020-02-12T22:01:27.317865 #32324]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T22:01:27.318113 #32324]  INFO -- : Stopping Karafka server 32324
+I, [2020-02-12T22:01:28.289461 #32324]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T22:01:28.289614 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T22:01:28.289747 #32324]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
+I, [2020-02-12T22:01:28.330432 #32324]  INFO -- : [consumer_app_person_group] {person: 0}: Fetcher thread exited.
+I, [2020-02-12T22:01:28.330531 #32324]  INFO -- : [[consumer_app_person_group] {}:] Disconnecting broker 1
+I, [2020-02-12T22:01:28.335769 #32324]  INFO -- : [[consumer_app_person_group] {}:] Leaving group `consumer_app_person_group`
+I, [2020-02-12T22:01:34.815332 #32897]  INFO -- : Initializing Karafka server 32897
+I, [2020-02-12T22:01:34.895201 #32897]  INFO -- : Running Karafka server 32897
+I, [2020-02-12T22:01:34.896130 #32897]  INFO -- : New topics added to target list: my-topic
+I, [2020-02-12T22:01:34.896794 #32897]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:01:34.896743 #32897]  INFO -- : New topics added to target list: person
+I, [2020-02-12T22:01:34.897020 #32897]  INFO -- : Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:01:34.902501 #32897]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:01:34.903146 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Joining group `consumer_app_topic_group`
+I, [2020-02-12T22:01:34.903580 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Will fetch at most 1048576 bytes at a time per partition from my-topic
+I, [2020-02-12T22:01:34.903847 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:01:34.904535 #32897]  INFO -- : Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:01:34.904787 #32897]  INFO -- : [[consumer_app_person_group] {}:] Joining group `consumer_app_person_group`
+I, [2020-02-12T22:01:34.905773 #32897]  INFO -- : [[consumer_app_person_group] {}:] Will fetch at most 1048576 bytes at a time per partition from person
+I, [2020-02-12T22:01:34.905977 #32897]  INFO -- : [[consumer_app_person_group] {}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:01:34.917966 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:01:34.918214 #32897]  INFO -- : [[consumer_app_topic_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T22:01:34.920140 #32897]  INFO -- : [[consumer_app_person_group] {}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:01:34.920256 #32897]  INFO -- : [[consumer_app_person_group] {}:] There are no partitions to fetch from, sleeping for 1s
+I, [2020-02-12T22:01:34.937248 #32897]  INFO -- : [[consumer_app_person_group] {}:] Joined group `consumer_app_person_group` with member id `consumer_app-0d9bcfdb-4b76-4899-9a1c-63dca857a2cd`
+I, [2020-02-12T22:01:34.937385 #32897]  INFO -- : [[consumer_app_person_group] {}:] Chosen as leader of group `consumer_app_person_group`
+I, [2020-02-12T22:01:34.940837 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Joined group `consumer_app_topic_group` with member id `consumer_app-23d24798-6814-438b-bab9-8c321dbbcd16`
+I, [2020-02-12T22:01:34.940926 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Chosen as leader of group `consumer_app_topic_group`
+I, [2020-02-12T22:01:34.947901 #32897]  INFO -- : [[consumer_app_person_group] {}:] Partitions assigned for `person`: 0
+I, [2020-02-12T22:01:34.954604 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Partitions assigned for `my-topic`: 0
+I, [2020-02-12T22:01:35.922367 #32897]  INFO -- : [[consumer_app_person_group] {person: 0}:] Seeking person/0 to offset 5
+I, [2020-02-12T22:01:35.922615 #32897]  INFO -- : [[consumer_app_person_group] {person: 0}:] New topics added to target list: person
+I, [2020-02-12T22:01:35.922819 #32897]  INFO -- : [[consumer_app_person_group] {person: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:01:35.923209 #32897]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Seeking my-topic/0 to offset 7
+I, [2020-02-12T22:01:35.923516 #32897]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] New topics added to target list: my-topic
+I, [2020-02-12T22:01:35.923652 #32897]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Fetching cluster metadata from kafka://192.168.1.65:9092
+I, [2020-02-12T22:01:35.933587 #32897]  INFO -- : [[consumer_app_person_group] {person: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:01:35.935943 #32897]  INFO -- : [[consumer_app_topic_group] {my-topic: 0}:] Discovered cluster metadata; nodes: localhost:9092 (node_id=1)
+I, [2020-02-12T22:01:36.987867 #32897]  INFO -- : Inline processing of topic person with 1 messages took 25 ms
+I, [2020-02-12T22:01:37.003594 #32897]  INFO -- : Inline processing of topic person with 1 messages took 16 ms
+I, [2020-02-12T22:01:37.003852 #32897]  INFO -- : 2 messages on person topic delegated to MyTopicConsumer
+I, [2020-02-12T22:03:07.278368 #32897]  INFO -- : Inline processing of topic person with 1 messages took 76 ms
+I, [2020-02-12T22:03:07.278483 #32897]  INFO -- : 1 messages on person topic delegated to MyTopicConsumer
+I, [2020-02-12T22:03:07.356270 #32897]  INFO -- : Inline processing of topic person with 1 messages took 78 ms
+I, [2020-02-12T22:03:07.356342 #32897]  INFO -- : 1 messages on person topic delegated to MyTopicConsumer
+I, [2020-02-12T22:07:41.161165 #32897]  INFO -- : Received SIGINT system signal
+I, [2020-02-12T22:07:41.161896 #32897]  INFO -- : Stopping Karafka server 32897
+I, [2020-02-12T22:07:42.431758 #32897]  INFO -- : [consumer_app_person_group] {person: 0}: Fetcher thread exited.
+I, [2020-02-12T22:07:42.431959 #32897]  INFO -- : [[consumer_app_person_group] {}:] Disconnecting broker 1
+I, [2020-02-12T22:07:42.441242 #32897]  INFO -- : [[consumer_app_person_group] {}:] Leaving group `consumer_app_person_group`
+I, [2020-02-12T22:07:42.513166 #32897]  INFO -- : [consumer_app_topic_group] {my-topic: 0}: Fetcher thread exited.
+I, [2020-02-12T22:07:42.513288 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Disconnecting broker 1
+I, [2020-02-12T22:07:42.513396 #32897]  INFO -- : [[consumer_app_topic_group] {}:] Leaving group `consumer_app_topic_group`
