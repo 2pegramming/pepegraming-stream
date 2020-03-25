@@ -1,6 +1,6 @@
-# Template for a new apps
+# Event Sourcing
 
-# Theoretical information
+## Theoretical information
 
 My favourite explanation what is event soursing:
 
@@ -26,7 +26,7 @@ Microsoft docs:
 
 https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
 
-# Tools
+## Tools
 
 Fullstack:
 http://railseventstore.org
