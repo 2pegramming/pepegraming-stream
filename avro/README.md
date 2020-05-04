@@ -2,7 +2,7 @@
 
 Simple example how to work with avro, kafka and schema-registry
 
-* [Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1<Paste>)
+* [Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1)
 * [Docker compose](https://github.com/confluentinc/examples/blob/5.3.1-post/cp-all-in-one/docker-compose.yml)
 * [Karafka (consumer)](https://github.com/karafka/karafka)
 * [waterdrop (Producer)](https://github.com/karafka/waterdrop)
