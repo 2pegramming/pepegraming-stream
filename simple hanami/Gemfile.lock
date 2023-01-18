@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/davydovanton/dry-system-hanami.git
-  revision: b83bef971c4d535cbaae4c7ebc48d6a454d6a3bd
+  remote: https://github.com/davydovanton/dry-system-hanami.git
+  revision: b54aac734b5dc7e98fd995578808e0c5d32bd426
   specs:
     dry-system-hanami (0.1.0)
 
@@ -130,7 +130,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
     public_suffix (3.0.3)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rake (13.0.1)
